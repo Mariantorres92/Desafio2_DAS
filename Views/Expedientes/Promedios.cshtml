@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Promedios por Alumno";
+}
+
+<h2>Promedio de Notas por Alumno</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Alumno</th>
+            <th>Promedio</th>
+            <th>Total Materias</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Promedios)
+        {
+            <tr>
+                <td>@item.Alumno</td>
+                <td>@string.Format("{0:F2}", item.Promedio)</td>
+                <td>@item.TotalMaterias</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<canvas id="graficoPromedios" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('graficoPromedios').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [@Html.Raw(string.Join(",", ((IEnumerable<dynamic>)ViewBag.Promedios).Select(p => $"'{p.Alumno}'")))],
+            datasets: [{
+                label: 'Promedio de Notas',
+                data: [@Html.Raw(string.Join(",", ((IEnumerable<dynamic>)ViewBag.Promedios).Select(p => p.Promedio.ToString("F2"))))],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }
+        }
+    });
+</script>
