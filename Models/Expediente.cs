@@ -7,13 +7,13 @@ namespace ColegioSanJose.Models
         public int ExpedienteId { get; set; }
 
         public int AlumnoId { get; set; }
-        public Alumno Alumno { get; set; }
+        public Alumno? Alumno { get; set; }
 
         public int MateriaId { get; set; }
-        public Materia Materia { get; set; }
+        public Materia? Materia { get; set; }
 
         public float NotaFinal { get; set; }
 
-        public string Observaciones { get; set; }
+        public string? Observaciones { get; set; }
     }
 }

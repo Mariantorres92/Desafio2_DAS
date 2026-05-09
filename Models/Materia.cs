@@ -7,11 +7,11 @@ namespace ColegioSanJose.Models
         public int MateriaId { get; set; }
 
         [Required]
-        public string NombreMateria { get; set; }
+        public string? NombreMateria { get; set; }
 
         [Required]
-        public string Docente { get; set; }
+        public string? Docente { get; set; }
 
-        public ICollection<Expediente> Expedientes { get; set; }
+        public ICollection<Expediente>? Expedientes { get; set; }
     }
 }
