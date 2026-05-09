@@ -1,8 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="background: linear-gradient(135deg, #166534, #16A34A); min-height: 80vh; display: flex; align-items: center; justify-content: center; border-radius: 10px; margin-top: 20px;">
+    <div style="text-align: center; color: #FFFFFF; padding: 40px;">
+        <h1 style="font-size: 3rem; font-weight: bold;">🏫 Colegio San José</h1>
+        <p style="font-size: 1.3rem; margin-top: 20px;">Sistema de Gestión de Expedientes Académicos</p>
+        <hr style="border-color: #FFFFFF; width: 50%; margin: 30px auto;" />
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+            <a asp-controller="Alumnos" asp-action="Index" style="background-color:#FFFFFF; color:#166534; font-weight:bold;" class="btn btn-lg">
+                👨‍🎓 Alumnos
+            </a>
+            <a asp-controller="Materias" asp-action="Index" style="background-color:#FFFFFF; color:#166534; font-weight:bold;" class="btn btn-lg">
+                📚 Materias
+            </a>
+            <a asp-controller="Expedientes" asp-action="Index" style="background-color:#FFFFFF; color:#166534; font-weight:bold;" class="btn btn-lg">
+                📋 Expedientes
+            </a>
+            <a asp-controller="Expedientes" asp-action="Promedios" style="background-color:#F5F5F5; color:#166534; font-weight:bold;" class="btn btn-lg">
+                📊 Ver Promedios
+            </a>
+        </div>
+    </div>
 </div>
