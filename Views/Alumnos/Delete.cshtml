@@ -1,0 +1,31 @@
+﻿@model ColegioSanJose.Models.Alumno
+
+@{
+    ViewData["Title"] = "Eliminar Alumno";
+}
+
+<h2>Eliminar Alumno</h2>
+
+<p>¿Estás segura que deseas eliminar este alumno?</p>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.Nombre</dd>
+
+        <dt class="col-sm-2">Apellido</dt>
+        <dd class="col-sm-10">@Model.Apellido</dd>
+
+        <dt class="col-sm-2">Fecha Nacimiento</dt>
+        <dd class="col-sm-10">@Model.FechaNacimiento.ToShortDateString()</dd>
+
+        <dt class="col-sm-2">Grado</dt>
+        <dd class="col-sm-10">@Model.Grado</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="AlumnoId" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ColegioSanJose.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Alumnos";
+}
+
+<h2>Lista de Alumnos</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo Alumno</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th>Grado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.FechaNacimiento.ToShortDateString()</td>
+                <td>@item.Grado</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AlumnoId" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.AlumnoId" class="btn btn-info btn-sm">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.AlumnoId" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
