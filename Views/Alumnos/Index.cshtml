@@ -7,7 +7,7 @@
 <h2>Lista de Alumnos</h2>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Agregar Nuevo Alumno</a>
+    <a asp-action="Create" class="btn btn-lg" style="background-color:#16A34A; color:white;">Agregar Nuevo Alumno</a>
 </p>
 
 <table class="table table-striped">
@@ -29,9 +29,9 @@
                 <td>@item.FechaNacimiento.ToShortDateString()</td>
                 <td>@item.Grado</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.AlumnoId" class="btn btn-warning btn-sm">Editar</a>
-                    <a asp-action="Details" asp-route-id="@item.AlumnoId" class="btn btn-info btn-sm">Detalles</a>
-                    <a asp-action="Delete" asp-route-id="@item.AlumnoId" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@item.AlumnoId" class="btn btn-sm" style="background-color:#16A34A; color:white;">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.AlumnoId" class="btn btn-sm" style="background-color:#6B7280; color:white;">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.AlumnoId" class="btn btn-sm btn-danger">Eliminar</a>
                 </td>
             </tr>
         }
