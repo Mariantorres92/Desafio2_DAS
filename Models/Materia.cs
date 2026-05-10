@@ -6,10 +6,10 @@ namespace ColegioSanJose.Models
     {
         public int MateriaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo Nombre de Materia es obligatorio.")]
         public string? NombreMateria { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo Docente es obligatorio.")]
         public string? Docente { get; set; }
 
         public ICollection<Expediente>? Expedientes { get; set; }

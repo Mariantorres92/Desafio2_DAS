@@ -6,15 +6,15 @@ namespace ColegioSanJose.Models
     {
         public int AlumnoId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo Nombre es obligatorio.")]
         public string? Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo Apellido es obligatorio.")]
         public string? Apellido { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo Grado es obligatorio.")]
         public string? Grado { get; set; }
 
         public ICollection<Expediente>? Expedientes { get; set; }

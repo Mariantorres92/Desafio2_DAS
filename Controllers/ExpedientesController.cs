@@ -46,6 +46,18 @@ namespace ColegioSanJose.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Expediente expediente)
         {
+            if (string.IsNullOrEmpty(expediente.Observaciones))
+                expediente.Observaciones = "-";
+
+            ModelState.Remove("Alumno");
+            ModelState.Remove("Materia");
+
+            if (expediente.AlumnoId == 0)
+                ModelState.AddModelError("AlumnoId", "Debe seleccionar un Alumno.");
+
+            if (expediente.MateriaId == 0)
+                ModelState.AddModelError("MateriaId", "Debe seleccionar una Materia.");
+
             if (ModelState.IsValid)
             {
                 _context.Add(expediente);
@@ -72,6 +84,19 @@ namespace ColegioSanJose.Controllers
         public async Task<IActionResult> Edit(int id, Expediente expediente)
         {
             if (id != expediente.ExpedienteId) return NotFound();
+
+            if (string.IsNullOrEmpty(expediente.Observaciones))
+                expediente.Observaciones = "-";
+
+            ModelState.Remove("Alumno");
+            ModelState.Remove("Materia");
+
+            if (expediente.AlumnoId == 0)
+                ModelState.AddModelError("AlumnoId", "Debe seleccionar un Alumno.");
+
+            if (expediente.MateriaId == 0)
+                ModelState.AddModelError("MateriaId", "Debe seleccionar una Materia.");
+
             if (ModelState.IsValid)
             {
                 try
